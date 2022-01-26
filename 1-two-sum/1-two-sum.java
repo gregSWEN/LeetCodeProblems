@@ -13,9 +13,7 @@ class Solution {
         for(int i = 0; i < nums.length; i++){
             compliment = target - nums[i];
             if(table.containsKey(compliment)){
-                out[0] = table.get(compliment);
-                out[1] = i;
-                return out;
+                return new int[]{table.get(compliment), i};
             }
             table.put(nums[i], i);   
         }
