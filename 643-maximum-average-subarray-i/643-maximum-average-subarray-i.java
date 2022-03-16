@@ -2,6 +2,7 @@ import java.util.ArrayList;
 class Solution {
     public double findMaxAverage(int[] nums, int k) {
         
+        //First sliding window problem
         double winSum = 0;
         int winStart = 0;
         double maxAverage = Integer.MIN_VALUE;
