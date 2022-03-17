@@ -1,26 +1,22 @@
-import java.util.ArrayList;
 class Solution {
     public double findMaxAverage(int[] nums, int k) {
-        
-        //First sliding window problem
-        double winSum = 0;
         int winStart = 0;
-        double maxAverage = Integer.MIN_VALUE;
-        double currAverage = 0;
-        for(int winEnd=0; winEnd<nums.length; winEnd++){
-            winSum += nums[winEnd];
+        double currAvg = 0;
+        double maxAvg = Integer.MIN_VALUE;
+        double sum = 0;
+        for(int winEnd = 0; winEnd<nums.length; winEnd++){
+            sum += nums[winEnd];
             
-            
-            if(winEnd >= k - 1){ // If we get to the end of the first window
-                currAverage = winSum/k;
-                if(currAverage>maxAverage){
-                    maxAverage = currAverage;
+            if(winEnd >= k-1){
+                currAvg = sum/k;
+                
+                if(currAvg > maxAvg){
+                    maxAvg = currAvg;
                 }
-                winSum -= nums[winStart]; // Subtract the element leaving the window
+                sum -= nums[winStart];
                 winStart++;
             }
         }
-        return maxAverage;
-        
+        return maxAvg;
     }
 }
