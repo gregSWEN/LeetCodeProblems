@@ -5,12 +5,9 @@ class Solution(object):
         :rtype: bool
         """
         mySet = set()
-        containsDup = False
-        for i in range(len(nums)):
-            if nums[i] not in mySet:
-                mySet.add(nums[i])
-            else:
-                mySet.add(nums[i])
-                containsDup = True
+        for i in nums:
+            if i in mySet:
+                return True
+            mySet.add(i)
             
-        return containsDup
+        return False
